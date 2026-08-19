@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Farm Dashboard - AgriSense AI</title>
+<link rel="stylesheet" href="../exp 2/style.css">
+<link rel="stylesheet" href="../exp 2/nav.css">
+<link rel="stylesheet" href="../exp 2/cards.css">
+<link rel="stylesheet" href="../exp 2/layout.css">
 <style>
   :root{
     --primary:#2e7d32;
@@ -16,18 +20,10 @@
     --border:#cfd8cf;
   }
   *{box-sizing:border-box;}
-  body{margin:0;font-family:'Segoe UI', Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   header{background:linear-gradient(90deg,var(--primary-dark),var(--primary));color:#fff;padding:1.5rem 2rem;}
-  header h1{margin:0 0 .3rem 0;font-size:1.8rem;}
+  header h1{margin:0 0 .3rem 0;font-size:1.8rem;color:#fff;}
   header p{margin:0;font-size:1rem;opacity:.9;}
-  nav{background:var(--primary-dark);padding:.7rem 2rem;}
-  nav a{color:#fff;text-decoration:none;margin-right:1.5rem;font-weight:600;font-size:.95rem;}
-  nav a:hover{text-decoration:underline;}
-  main{max-width:1000px;margin:2rem auto;padding:0 1.5rem;}
-  section, article, aside{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
-  aside{border-left:4px solid var(--secondary);background:#eef6fb;}
-  h2{color:var(--primary-dark);}
-  footer{text-align:center;padding:1.2rem;background:var(--primary-dark);color:#fff;margin-top:2rem;}
+  section, article{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
   table{border-collapse:collapse;width:100%;}
   table, th, td{border:1px solid var(--border);}
   th, td{padding:.6rem .8rem;text-align:left;}
@@ -56,34 +52,18 @@
   <p>Smart Irrigation using AI &amp; Sensor Technology</p>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="farm-info.html">Farm Dashboard</a>
-  <a href="advisory.html">Irrigation Advisory</a>
-  <a href="irrigation-table.html">Sensor Data</a>
-  <a href="index.html#contact">Contact</a>
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="farm-info.html">Farm Dashboard</a></li>
+    <li><a href="advisory.html">Irrigation Advisory</a></li>
+    <li><a href="irrigation-table.html">Sensor Data</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<main>
-  <section>
-    <h2>Farm Information Dashboard</h2>
-    <p>This dashboard summarizes the <b>irrigation workflow</b>, the <i>sensors</i> deployed across our farm plots, and the key <mark>crop growth stages</mark> monitored by our AI advisory system.</p>
-  </section>
-
-  <section>
-    <h2>Irrigation Workflow</h2>
-    <ol>
-      <li>Soil moisture sensing at plot level</li>
-      <li>Data collection and transmission to central server</li>
-      <li>AI-based data analysis and pattern recognition</li>
-      <li>Generation of irrigation recommendation</li>
-      <li>Irrigation scheduling based on crop water requirement</li>
-      <li>Automated or manual water application</li>
-      <li>Continuous monitoring and feedback loop</li>
-    </ol>
-  </section>
-
-  <section>
+<div class="page-layout">
+  <aside class="sidebar sidebar-card">
     <h2>Sensors Used</h2>
     <ul>
       <li>Soil Moisture Sensor</li>
@@ -91,22 +71,42 @@
       <li>Humidity Sensor</li>
       <li>Rainfall Sensor</li>
     </ul>
-  </section>
+  </aside>
 
-  <section>
-    <h2>Crop Stages</h2>
-    <dl>
-      <dt>Germination</dt>
-      <dd>Initial sprouting stage requiring consistent soil moisture for seed establishment.</dd>
-      <dt>Tillering</dt>
-      <dd>Formation of side shoots from the base, requiring moderate and steady irrigation.</dd>
-      <dt>Grand Growth</dt>
-      <dd><em>Highest</em> water demand stage with rapid stalk and biomass development.</dd>
-      <dt>Maturity</dt>
-      <dd>Reduced irrigation stage as the crop prepares for harvesting.</dd>
-    </dl>
-  </section>
-</main>
+  <div class="content">
+    <section>
+      <h2>Farm Information Dashboard</h2>
+      <p>This dashboard summarizes the <b>irrigation workflow</b>, the <i>sensors</i> deployed across our farm plots, and the key <mark>crop growth stages</mark> monitored by our AI advisory system.</p>
+    </section>
+
+    <section>
+      <h2>Irrigation Workflow</h2>
+      <ol>
+        <li>Soil moisture sensing at plot level</li>
+        <li>Data collection and transmission to central server</li>
+        <li>AI-based data analysis and pattern recognition</li>
+        <li>Generation of irrigation recommendation</li>
+        <li>Irrigation scheduling based on crop water requirement</li>
+        <li>Automated or manual water application</li>
+        <li>Continuous monitoring and feedback loop</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Crop Stages</h2>
+      <dl>
+        <dt>Germination</dt>
+        <dd>Initial sprouting stage requiring consistent soil moisture for seed establishment.</dd>
+        <dt>Tillering</dt>
+        <dd>Formation of side shoots from the base, requiring moderate and steady irrigation.</dd>
+        <dt>Grand Growth</dt>
+        <dd><em>Highest</em> water demand stage with rapid stalk and biomass development.</dd>
+        <dt>Maturity</dt>
+        <dd>Reduced irrigation stage as the crop prepares for harvesting.</dd>
+      </dl>
+    </section>
+  </div>
+</div>
 
 <footer>
   <p>&copy; 2026 AgriSense AI Smart Irrigation Advisory Portal. All rights reserved.</p>

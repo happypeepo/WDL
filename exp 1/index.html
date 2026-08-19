@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AgriSense AI - Smart Irrigation Advisory Portal</title>
+<link rel="stylesheet" href="../exp 2/style.css">
+<link rel="stylesheet" href="../exp 2/nav.css">
 <style>
   :root{
     --primary:#2e7d32;
@@ -16,18 +18,12 @@
     --border:#cfd8cf;
   }
   *{box-sizing:border-box;}
-  body{margin:0;font-family:'Segoe UI', Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
   header{background:linear-gradient(90deg,var(--primary-dark),var(--primary));color:#fff;padding:1.5rem 2rem;}
   header h1{margin:0 0 .3rem 0;font-size:1.8rem;}
   header p{margin:0;font-size:1rem;opacity:.9;}
-  nav{background:var(--primary-dark);padding:.7rem 2rem;}
-  nav a{color:#fff;text-decoration:none;margin-right:1.5rem;font-weight:600;font-size:.95rem;}
-  nav a:hover{text-decoration:underline;}
   main{max-width:1000px;margin:2rem auto;padding:0 1.5rem;}
   section, article, aside{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
   aside{border-left:4px solid var(--secondary);background:#eef6fb;}
-  h2{color:var(--primary-dark);}
-  footer{text-align:center;padding:1.2rem;background:var(--primary-dark);color:#fff;margin-top:2rem;}
   table{border-collapse:collapse;width:100%;}
   table, th, td{border:1px solid var(--border);}
   th, td{padding:.6rem .8rem;text-align:left;}
@@ -50,17 +46,19 @@
 </style>
 </head>
 <body>
-<header>
-  <h1>AgriSense AI</h1>
-  <p>Smart Irrigation using AI &amp; Sensor Technology</p>
+<header style="background-color:#1b5e20; padding:1.5rem 2rem; border-bottom:4px solid #0277bd;">
+  <h1 style="color:#ffe08a;">AgriSense AI</h1>
+  <p style="text-align:center;">Smart Irrigation using AI &amp; Sensor Technology</p>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="farm-info.html">Farm Dashboard</a>
-  <a href="advisory.html">Irrigation Advisory</a>
-  <a href="irrigation-table.html">Sensor Data</a>
-  <a href="#contact">Contact</a>
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="farm-info.html">Farm Dashboard</a></li>
+    <li><a href="advisory.html">Irrigation Advisory</a></li>
+    <li><a href="irrigation-table.html">Sensor Data</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <main>

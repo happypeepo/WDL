@@ -1,0 +1,30 @@
+/* Task 2: Internal->reusable CSS for Navigation Menu */
+
+nav.main-nav {
+  background-color: #1b5e20;
+  padding: 0.7rem 2rem;
+}
+
+nav.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav.main-nav li {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+nav.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.2rem;
+}
+
+nav.main-nav a:hover {
+  color: #ffe08a;
+  text-decoration: underline;
+}

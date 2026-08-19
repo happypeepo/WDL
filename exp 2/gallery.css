@@ -1,0 +1,18 @@
+/* Task 6: Image Gallery Styling */
+
+.product-card img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border: 2px solid #cfd8cf;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.product-card img:hover {
+  transform: scale(1.08);
+}
+
+.gallery-grid {
+  gap: 1rem;
+}

@@ -1,0 +1,40 @@
+/* Task 4: Sidebar "category" card + Task 5: Product/plot card layout */
+
+.sidebar-card {
+  border: 1px solid #cfd8cf;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  background-color: #ffffff;
+}
+
+.sidebar-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-card li {
+  padding: 0.6rem 0.4rem;
+  margin-bottom: 0.4rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-card li:hover {
+  background-color: #eef6fb;
+  color: #0277bd;
+}
+
+.product-card {
+  display: inline-block;
+  width: 260px;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #cfd8cf;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  vertical-align: top;
+}

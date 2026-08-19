@@ -1,0 +1,29 @@
+/* Task 7: Table Styling for Sensor/Irrigation Data (Price-List Style) */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid #cfd8cf;
+}
+
+th, td {
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+
+thead th {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f0f6f0;
+}
+
+tfoot {
+  font-weight: bold;
+  background-color: #e0ede0;
+}

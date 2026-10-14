@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../exp 2/nav.css">
 <link rel="stylesheet" href="../exp 2/cards.css">
 <link rel="stylesheet" href="../exp 2/layout.css">
+<script src="farm-info.js" defer></script>
 <style>
   :root{
     --primary:#2e7d32;
@@ -66,11 +67,14 @@
   <aside class="sidebar sidebar-card">
     <h2>Sensors Used</h2>
     <ol>
-      <li>Soil Moisture Sensor</li>
-      <li>Temperature Sensor</li>
-      <li>Humidity Sensor</li>
-      <li>Rainfall Sensor</li>
+      <li><button type="button" class="sensor-btn" aria-pressed="false">Soil Moisture Sensor</button></li>
+      <li><button type="button" class="sensor-btn" aria-pressed="false">Temperature Sensor</button></li>
+      <li><button type="button" class="sensor-btn" aria-pressed="false">Humidity Sensor</button></li>
+      <li><button type="button" class="sensor-btn" aria-pressed="false">Rainfall Sensor</button></li>
     </ol>
+    <div id="sensor-output" class="sensor-output" role="status" aria-live="polite">
+      Selected sensor: <strong id="sensor-name">None selected</strong>
+    </div>
   </aside>
 
   <div class="content">

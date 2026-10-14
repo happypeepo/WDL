@@ -8,8 +8,8 @@
   background-color: #ffffff;
 }
 
-.sidebar-card ul {
-  list-style: none;
+.sidebar-card ol {
+  list-style: decimal inside;
   margin: 0;
   padding: 0;
 }

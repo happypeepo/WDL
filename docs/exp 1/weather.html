@@ -6,6 +6,8 @@
 <title>Weather Forecast - AgriSense AI</title>
 <link rel="stylesheet" href="../exp 2/style.css">
 <link rel="stylesheet" href="../exp 2/nav.css">
+<link rel="stylesheet" href="../exp 2/table.css">
+<script src="weather.js" defer></script>
 <style>
   :root{
     --primary:#2e7d32;
@@ -25,6 +27,7 @@
   section, article{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
   iframe{border:1px solid var(--border);border-radius:6px;}
   .iframe-block{margin-bottom:1.5rem;}
+  #forecast{overflow-x:auto;}
 </style>
 </head>
 <body>
@@ -46,15 +49,23 @@
 <main>
   <section>
     <h2>Today's Weather Forecast</h2>
+    <p>Farm location: <strong>Karad, Maharashtra</strong> (sample location)</p>
 
     <div class="iframe-block">
-      <h3>IMD Weather Forecast</h3>
-      <iframe src="https://example.com/imd/forecast/farm-region" width="100%" height="350" title="IMD Weather Forecast for Farm Region"></iframe>
+      <h3>3-Day Forecast</h3>
+      <div id="forecast" aria-live="polite">Loading forecast...</div>
+      <p id="forecast-hint"></p>
+      <p><small>Forecast data from Open-Meteo. ET&#8320; is the water the crop is expected to lose to evaporation and transpiration. For official warnings, see the <a href="https://mausam.imd.gov.in/" target="_blank" rel="noopener">India Meteorological Department (IMD)</a>. IMD's pages block embedding in other sites, so they can't be shown inside this page.</small></p>
+    </div>
+
+    <div class="iframe-block">
+      <h3>Rain &amp; Wind Forecast Map</h3>
+      <iframe src="https://embed.windy.com/embed2.html?lat=17.289&amp;lon=74.182&amp;detailLat=17.289&amp;detailLon=74.182&amp;zoom=8&amp;level=surface&amp;overlay=rain&amp;product=ecmwf&amp;menu=&amp;message=true&amp;marker=true&amp;calendar=now&amp;type=map&amp;location=coordinates&amp;detail=&amp;metricWind=km%2Fh&amp;metricTemp=%C2%B0C&amp;radarRange=-1" width="100%" height="400" title="Windy rain and wind forecast map for the farm region" loading="lazy"></iframe>
     </div>
 
     <div class="iframe-block">
       <h3>Farm Location Map</h3>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1" width="100%" height="350" title="Google Maps view of farm location" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps?q=Karad,+Maharashtra&amp;z=11&amp;output=embed" width="100%" height="350" title="Google Maps view of farm location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 </main>

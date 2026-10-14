@@ -13,6 +13,22 @@
   transform: scale(1.08);
 }
 
-.gallery-grid {
+/* The gallery is an ordered list: cards sit side by side, numbered via the captions */
+ol.gallery-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   gap: 1rem;
+  counter-reset: gallery;
+}
+
+ol.gallery-grid > li {
+  counter-increment: gallery;
+}
+
+ol.gallery-grid figcaption::before {
+  content: counter(gallery) ". ";
+  font-weight: bold;
+  font-style: normal;
+  color: #1b5e20;
 }

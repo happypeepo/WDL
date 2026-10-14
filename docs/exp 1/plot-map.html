@@ -24,7 +24,7 @@
   main{max-width:1000px;margin:2rem auto;padding:0 1.5rem;}
   section, article{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
   .plot-detail{border-top:1px dashed var(--border);margin-top:1.5rem;padding-top:1rem;}
-  .map-wrapper{text-align:center;}
+  .map-wrapper{text-align:center;overflow-x:auto;}
 </style>
 </head>
 <body>
@@ -48,7 +48,7 @@
     <h2>Farm Plot Navigation Map</h2>
     <p>Click on a plot region in the map below to jump to its details.</p>
     <div class="map-wrapper">
-      <img src="https://placehold.co/600x400?text=Farm+Layout+Map" alt="Farm layout map showing Plot A, Plot B, and Plot C" usemap="#farmmap" width="600" height="400">
+      <img src="images/farm-map.svg" alt="Farm layout map showing Plot A, Plot B, and Plot C" usemap="#farmmap" width="600" height="400">
       <map name="farmmap">
         <area shape="rect" coords="10,10,190,390" href="#plot-a" alt="Plot A">
         <area shape="rect" coords="210,10,390,390" href="#plot-b" alt="Plot B">

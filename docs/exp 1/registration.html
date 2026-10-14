@@ -49,7 +49,8 @@
 <main>
   <section>
     <h2>Farmer Registration</h2>
-    <form action="#" method="post">
+    <div id="form-success" class="success" role="status" hidden></div>
+    <form id="regForm" action="#" method="post" novalidate>
       <fieldset>
         <legend>Farmer &amp; Plot Details</legend>
 
@@ -107,5 +108,140 @@
 <footer>
   <p>&copy; 2026 AgriSense AI Smart Irrigation Advisory Portal. All rights reserved.</p>
 </footer>
+
+<script>
+(function () {
+  var form = document.getElementById("regForm");
+  var success = document.getElementById("form-success");
+
+  function byId(id) { return document.getElementById(id); }
+
+  // Local-time YYYY-MM-DD, so "today" is correct regardless of timezone.
+  function todayString() {
+    var d = new Date();
+    var m = String(d.getMonth() + 1).padStart(2, "0");
+    var day = String(d.getDate()).padStart(2, "0");
+    return d.getFullYear() + "-" + m + "-" + day;
+  }
+
+  // Show (or clear, when message is "") the error text right after a field.
+  function setError(el, message) {
+    var err = el.nextElementSibling;
+    if (!err || !err.classList.contains("error")) {
+      err = document.createElement("span");
+      err.className = "error";
+      err.setAttribute("role", "alert");
+      el.insertAdjacentElement("afterend", err);
+    }
+    err.textContent = message;
+    el.classList.toggle("invalid", message !== "");
+    if (!el.classList.contains("radio-group")) {
+      el.setAttribute("aria-invalid", message !== "" ? "true" : "false");
+    }
+  }
+
+  var fields = [
+    { el: byId("name"), check: function () {
+        var v = byId("name").value.trim();
+        if (v === "") return "Please enter your full name.";
+        if (v.length < 3) return "Name must be at least 3 characters.";
+        if (!/^[A-Za-z][A-Za-z .'-]*$/.test(v)) return "Name can only contain letters, spaces, . ' and -.";
+        return "";
+    }},
+    { el: byId("mobile"), check: function () {
+        var v = byId("mobile").value.trim();
+        if (v === "") return "Please enter your mobile number.";
+        if (!/^\d{10}$/.test(v)) return "Mobile number must be exactly 10 digits.";
+        if (!/^[6-9]/.test(v)) return "Mobile number must start with 6, 7, 8 or 9.";
+        return "";
+    }},
+    { el: byId("email"), check: function () {
+        var v = byId("email").value.trim();
+        if (v === "") return "Please enter your email address.";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return "Enter a valid email, e.g. you@example.com.";
+        return "";
+    }},
+    { el: byId("plotid"), check: function () {
+        var v = byId("plotid").value.trim();
+        if (v === "") return "Please enter your Plot ID.";
+        if (!/^PLT-\d{3,}$/i.test(v)) return "Plot ID must look like PLT-106.";
+        return "";
+    }},
+    { el: byId("village"), check: function () {
+        var v = byId("village").value.trim();
+        if (v === "") return "Please enter your village name.";
+        if (!/^[A-Za-z][A-Za-z .'-]+$/.test(v)) return "Village name can only contain letters and spaces.";
+        return "";
+    }},
+    { el: form.querySelector('input[name="cropstage"]').closest(".radio-group"), check: function () {
+        return form.elements.cropstage.value === "" ? "Please select a crop stage." : "";
+    }},
+    { el: byId("soiltype"), check: function () {
+        return byId("soiltype").value === "" ? "Please select a soil type." : "";
+    }},
+    { el: form.querySelector('input[name="irrigationmethod"]').closest(".radio-group"), check: function () {
+        return form.elements.irrigationmethod.value === "" ? "Please select an irrigation method." : "";
+    }},
+    { el: byId("regdate"), check: function () {
+        var v = byId("regdate").value;
+        if (v === "") return "Please choose a registration date.";
+        if (v > todayString()) return "Registration date cannot be in the future.";
+        return "";
+    }},
+    { el: byId("farmphoto"), check: function () {
+        var file = byId("farmphoto").files[0];
+        if (!file) return ""; // photo is optional
+        if (file.type.indexOf("image/") !== 0) return "Please upload an image file.";
+        if (file.size > 5 * 1024 * 1024) return "Image must be 5 MB or smaller.";
+        return "";
+    }}
+  ];
+
+  function validate(f) {
+    var message = f.check();
+    setError(f.el, message);
+    return message === "";
+  }
+
+  // Validate as the user moves through the form.
+  fields.forEach(function (f) {
+    var usesChange = f.el.classList.contains("radio-group") ||
+                     f.el.tagName === "SELECT" || f.el.type === "file" || f.el.type === "date";
+    if (usesChange) {
+      f.el.addEventListener("change", function () { validate(f); });
+    } else {
+      f.el.addEventListener("blur", function () { validate(f); });
+      // Once a field is flagged, clear the error as soon as it's fixed.
+      f.el.addEventListener("input", function () {
+        if (f.el.classList.contains("invalid")) validate(f);
+      });
+    }
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    success.hidden = true;
+
+    var firstInvalid = null;
+    fields.forEach(function (f) {
+      if (!validate(f) && !firstInvalid) firstInvalid = f.el;
+    });
+
+    if (firstInvalid) {
+      var target = firstInvalid.classList.contains("radio-group")
+        ? firstInvalid.querySelector("input") : firstInvalid;
+      target.focus();
+      return;
+    }
+
+    // No backend yet: confirm on the page instead of posting anywhere.
+    success.textContent = "Thank you, " + byId("name").value.trim() +
+                          "! Your registration has been submitted.";
+    success.hidden = false;
+    form.reset();
+    success.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
+</script>
 </body>
 </html>

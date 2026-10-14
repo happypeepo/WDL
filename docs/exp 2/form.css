@@ -46,3 +46,30 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover {
   background-color: #1b5e20;
 }
+
+/* JS validation feedback */
+input.invalid, select.invalid {
+  border-color: #c62828;
+}
+
+.radio-group.invalid {
+  outline: 1px solid #c62828;
+  border-radius: 6px;
+}
+
+.error {
+  display: block;
+  margin-top: 0.3rem;
+  color: #c62828;
+  font-size: 0.85rem;
+}
+
+.success {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  background-color: #e8f5e9;
+  border: 1px solid #2e7d32;
+  border-radius: 6px;
+  color: #1b5e20;
+  font-weight: 600;
+}

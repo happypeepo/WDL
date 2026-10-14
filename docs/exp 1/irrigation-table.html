@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../exp 2/style.css">
 <link rel="stylesheet" href="../exp 2/nav.css">
 <link rel="stylesheet" href="../exp 2/table.css">
+<script src="irrigation-table.js" defer></script>
 <style>
   :root{
     --primary:#2e7d32;
@@ -25,6 +26,7 @@
   main{max-width:1000px;margin:2rem auto;padding:0 1.5rem;}
   section, article{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;}
   caption{font-weight:bold;margin-bottom:.5rem;color:var(--primary-dark);}
+  .table-wrap{overflow-x:auto;}
 </style>
 </head>
 <body>
@@ -46,13 +48,16 @@
 <main>
   <section>
     <h2>Soil Moisture &amp; Irrigation Data</h2>
+    <div class="table-wrap">
     <table>
-      <caption>Daily Plot-Level Sensor Readings and AI Irrigation Recommendations</caption>
+      <caption>Daily Plot-Level Sensor Readings (Moisture, pH, Potassium) and AI Irrigation Recommendations</caption>
       <thead>
         <tr>
           <th>Plot ID</th>
           <th>Farmer Name</th>
           <th>Soil Moisture (%)</th>
+          <th>pH (0&ndash;14)</th>
+          <th>Potassium (0&ndash;100%)</th>
           <th>Weather</th>
           <th>Irrigation Recommendation</th>
           <th>Water Requirement</th>
@@ -62,50 +67,82 @@
         <tr>
           <td>PLT-101</td>
           <td>Ramesh Patil</td>
-          <td>22</td>
+          <td class="col-moisture">22</td>
+          <td class="col-ph">6.8</td>
+          <td class="col-potassium">45</td>
           <td rowspan="2">Sunny, 34&deg;C</td>
           <td>Irrigate Now</td>
-          <td>40 mm</td>
+          <td class="col-water">40 mm</td>
         </tr>
         <tr>
           <td>PLT-102</td>
           <td>Sunita Kadam</td>
-          <td>27</td>
+          <td class="col-moisture">27</td>
+          <td class="col-ph">7.2</td>
+          <td class="col-potassium">52</td>
           <td>Irrigate Soon</td>
-          <td>30 mm</td>
+          <td class="col-water">30 mm</td>
         </tr>
         <tr>
           <td>PLT-103</td>
           <td>Vijay Deshmukh</td>
-          <td>45</td>
+          <td class="col-moisture">45</td>
+          <td class="col-ph">6.5</td>
+          <td class="col-potassium">68</td>
           <td>Cloudy, 28&deg;C</td>
           <td>No Irrigation Needed</td>
-          <td>0 mm</td>
+          <td class="col-water">0 mm</td>
         </tr>
         <tr>
           <td>PLT-104</td>
           <td>Anita Shinde</td>
-          <td>18</td>
+          <td class="col-moisture">18</td>
+          <td class="col-ph">7.8</td>
+          <td class="col-potassium">35</td>
           <td>Sunny, 36&deg;C</td>
           <td>Irrigate Now</td>
-          <td>45 mm</td>
+          <td class="col-water">45 mm</td>
         </tr>
         <tr>
           <td>PLT-105</td>
           <td>Suresh Jadhav</td>
-          <td>38</td>
+          <td class="col-moisture">38</td>
+          <td class="col-ph">7.0</td>
+          <td class="col-potassium">58</td>
           <td>Partly Cloudy, 30&deg;C</td>
           <td>Monitor</td>
-          <td>10 mm</td>
+          <td class="col-water">10 mm</td>
         </tr>
       </tbody>
       <tfoot>
+        <!-- Filled in by irrigation-table.js -->
         <tr>
-          <td colspan="5">Average Water Requirement Across All Plots</td>
-          <td>25 mm</td>
+          <td colspan="2">Minimum</td>
+          <td id="min-moisture">&ndash;</td>
+          <td id="min-ph">&ndash;</td>
+          <td id="min-potassium">&ndash;</td>
+          <td colspan="2">&ndash;</td>
+          <td id="min-water">&ndash;</td>
+        </tr>
+        <tr>
+          <td colspan="2">Maximum</td>
+          <td id="max-moisture">&ndash;</td>
+          <td id="max-ph">&ndash;</td>
+          <td id="max-potassium">&ndash;</td>
+          <td colspan="2">&ndash;</td>
+          <td id="max-water">&ndash;</td>
+        </tr>
+        <tr>
+          <td colspan="2">Average</td>
+          <td id="avg-moisture">&ndash;</td>
+          <td id="avg-ph">&ndash;</td>
+          <td id="avg-potassium">&ndash;</td>
+          <td colspan="2">&ndash;</td>
+          <td id="avg-water">&ndash;</td>
         </tr>
       </tfoot>
     </table>
+    </div>
   </section>
 </main>
 

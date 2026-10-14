@@ -1,0 +1,67 @@
+<!--
+<html>
+    <head><title>JavaScript Output Methods</title></head>
+    <body>
+        <h1>5 Ways to Display JavaScript Output</h1>
+        
+        <!-- 1. getElementById -->
+        <h2>1. getElementById (innerHTML)</h2>
+        <div id="output1"></div>
+        
+        <!-- 2. document.write -->
+        <h2>2. document.write</h2>
+        <div id="output2"></div>
+        
+        <!-- 3. alert -->
+        <h2>3. alert()</h2>
+        <button onclick="showAlert()">Click to show alert</button>
+        
+        <!-- 4. console.log -->
+        <h2>4. console.log (check browser console)</h2>
+        <button onclick="logToConsole()">Click to log to console</button>
+        
+        <!-- 5. innerHTML / textContent directly -->
+        <h2>5. innerHTML / textContent</h2>
+        <div id="output5"></div>
+
+        <script type="text/javascript">
+            // 1. getElementById with innerHTML
+            document.getElementById("output1").innerHTML = "<hr>Hello via getElementById + innerHTML<hr>";
+        
+            // 2. document.write
+            document.write("output2").innerHTML = "Hello via document.write (simulated)<hr>";
+            // Note: document.write after page load overwrites entire page, so we simulate it here
+            
+            // 3. alert
+            function showAlert() {
+                alert("Hello via alert()!");
+            }
+            
+            // 4. console.log
+            function logToConsole() {
+                console.log("Hello via console.log()");
+                console.info("Info message");
+                console.warn("Warning message");
+                console.error("Error message");
+            }
+            
+            // 5. innerHTML / textContent directly
+            document.getElementById("output5").innerHTML = "<hr>Hello via innerHTML<hr>";
+            document.getElementById("output5").textContent += "\nAnd this is via textContent";
+
+
+        </script>
+    </body>
+</html>
+-->
+<html>
+    <head>
+        <title>Average Calculator</title>
+        <script src="average.js" defer></script>
+    </head>
+    <body>
+        <h1>Average of 3 Numbers</h1>
+        <button onclick="calculateAverage()">Calculate Average</button>
+        <div id="result"></div>
+    </body>
+</html>
